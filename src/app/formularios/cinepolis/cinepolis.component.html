@@ -1,1 +1,33 @@
-<p>cinepolis works!</p>
+<div> 
+  <h3>Compra de Boletos de Cinépolis Angular</h3> 
+
+  <form [formGroup]="formularioCinepolis"> 
+      <div> 
+          <label for="nombreCliente">Nombre del cliente: </label><br> 
+          <input formControlName="nombreCliente" type="text" placeholder="Nombre"> 
+      </div> 
+      <br> 
+      <div> 
+          <label for="numBoletos">Número de boletos: </label><br> 
+          <input formControlName="numBoletos" type="number" placeholder=" máximo 7 por persona"> 
+      </div> 
+      <br> 
+      <div> 
+          <label for="numCompradores">Número de compradores: </label><br> 
+          <input formControlName="numCompradores" type="number" placeholder="Cantidad de compradores (máximo 2)"> 
+      </div> 
+      <br> 
+      <div> 
+          <label for="tarjetaCineco">¿Tienes tarjeta Cineco?</label><br> 
+          <input type="radio" formControlName="tarjetaCineco" value="sí"> Sí <br> 
+          <input type="radio" formControlName="tarjetaCineco" value="no"> No 
+      </div> 
+      <br> 
+      <button (click)="calcularTotalCinepolis()" type="button">Calcular Total</button> 
+      <br><br> 
+      <p>Total a pagar: {{ totalPagarCinepolis | currency }}</p> 
+      <p *ngIf="mensajeError" style="color: red;">{{ mensajeError }}</p>
+  </form> 
+</div>
+
+

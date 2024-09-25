@@ -24,9 +24,7 @@ import { CinepolisComponent } from './formularios/cinepolis/cinepolis.component'
     AppRoutingModule,
     FormsModule,
     ReactiveFormsModule
-
   ],
-
   providers: [],
   bootstrap: [AppComponent]
 })
