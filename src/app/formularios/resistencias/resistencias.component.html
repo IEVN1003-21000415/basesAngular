@@ -1,0 +1,62 @@
+<div class="contenedor">
+  <h2>Resistencias Angular</h2>
+
+  <form [formGroup]="resistenciasForm" (ngSubmit)="registrar()">
+    <div class="formulario">
+      <label for="color1">Color 1:</label>
+      <select formControlName="color1">
+        <option value="" disabled selected>Selecciona un color</option>
+        <option *ngFor="let color of colores">{{color}}</option>
+      </select>
+
+      <label for="color2">Color 2:</label>
+      <select formControlName="color2">
+        <option value="" disabled selected>Selecciona un color</option>
+        <option *ngFor="let color of colores">{{color}}</option>
+      </select>
+
+      <label for="color3">Color 3:</label>
+      <select formControlName="color3">
+        <option value="" disabled selected>Selecciona un color</option>
+        <option *ngFor="let color of colores">{{color}}</option>
+      </select>
+
+      <label>Tolerancia:</label>
+      <div>
+        <label>
+          <input type="radio" formControlName="tolerancia" value="Oro"> Oro
+        </label>
+        <label>
+          <input type="radio" formControlName="tolerancia" value="Plata"> Plata
+        </label>
+      </div>
+
+      <button type="submit" [disabled]="resistenciasForm.invalid">Registrar</button>
+    </div>
+  </form>
+
+  <table>
+    <thead>
+      <tr>
+        <th>Color 1</th>
+        <th>Color 2</th>
+        <th>Color 3</th>
+        <th>Tolerancia</th>
+        <th>Valor</th>
+        <th>Valor Máximo</th>
+        <th>Valor Mínimo</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let res of resultado">
+        <td [style.background]="colorCodes[res.color1]" [style.color]="res.color1 === 'Blanco' ? 'black' : 'white'">{{res.color1}}</td>
+        <td [style.background]="colorCodes[res.color2]" [style.color]="res.color2 === 'Blanco' ? 'black' : 'white'">{{res.color2}}</td>
+        <td [style.background]="colorCodes[res.color3]" [style.color]="res.color3 === 'Blanco' ? 'black' : 'white'">{{res.color3}}</td>
+        <td [style.background]="colorCodes[res.tolerancia]" [style.color]="res.tolerancia === 'Oro' || res.tolerancia === 'Plata' ? 'black' : 'white'">{{res.tolerancia}}</td>
+        <td>{{res.valor}}</td>
+        <td>{{res.valorMaximo}}</td>
+        <td>{{res.valorMinimo}}</td>
+      </tr>
+    </tbody>
+  </table>
+</div>
